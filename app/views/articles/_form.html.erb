@@ -1,0 +1,13 @@
+<div class="container">
+  <%= simple_form_for @article do |f| %>
+    <%= @article.errors.full_messages.join(', ') %>
+    <%= f.input :title, label: 'Titre' %>
+    <%= f.input :content %>
+    <%= f.input :profession %>
+    <%= f.input :photo %>
+    <%= f.input :photo_cache, as: :hidden %>
+    <%= f.button :submit, class: 'btn btn-danger btn-block' %>
+  <% end %>
+<br>
+  <%= link_to "Accueil", root_path, class: 'btn btn-light btn-block' %>
+</div>
