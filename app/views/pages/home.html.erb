@@ -1,7 +1,38 @@
-<div style="text-align: center; margin-bottom: -100px">
-  <img src="https://images.unsplash.com/photo-1499744349893-0c6de53516e6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1200&q=600" class="img-fluid" alt="Responsive image" >
-    <p class="caption">Outils Anciens</p>
-    <% if current_user && current_user.admin %>
-      <p><%= link_to "Nouvel Article", new_article_path, class: "bouton-create btn btn-danger"%></p>
+<!-- Banner -->
+<div class="banner d-flex flex-column justify-content-center align-items-center img-fluid">
+  <h1 class="banner_title">
+    Outils Anciens
+  </h1>
+  <% if current_user && current_user.admin %>
+    <p>
+      <%= link_to "Nouvel Article", new_article_path, class: "btn btn-danger" %>
+    </p>
+  <% elsif current_user.nil? %>
+    <p>
+      <%= link_to "Je m'inscris", new_user_session_path, class: "btn btn-danger" %>
+    </p>
+  <% end %>
+</div>
+
+<!-- Articles flow -->
+<div class="container-fluid article_flow">
+  <h2 class="article_flow title text-center">
+    Les derniers outils publiés
+  </h2>
+  <% if !@articles.empty? %>
+    <% @articles.each do |article| %>
+      <div class="card" style="width: 18rem;">
+        <%= cl_image_tag(article.photo, class: "card-img-top", alt: "Card image cap") %>
+        <div class="card-body">
+          <h5 class="card-title">
+            <%= article.title %>
+          </h5>
+          <p class="card-text">
+            <%= article.content %>
+          </p>
+          <%= link_to "Voir l'article", article_path(article), class: "btn btn-primary" %>
+        </div>
+      </div>
     <% end %>
+  <% end %>
 </div>
