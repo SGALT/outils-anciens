@@ -15,3 +15,24 @@
 </div>
 
 <!-- Articles flow -->
+<div class="container-fluid article_flow">
+  <h2 class="article_flow title text-center">
+    Les derniers outils publiés
+  </h2>
+  <% if !@articles.empty? %>
+    <% @articles.each do |article| %>
+      <div class="card" style="width: 18rem;">
+        <%= cl_image_tag(article.photo, class: "card-img-top", alt: "Card image cap") %>
+        <div class="card-body">
+          <h5 class="card-title">
+            <%= article.title %>
+          </h5>
+          <p class="card-text">
+            <%= article.content %>
+          </p>
+          <%= link_to "Voir l'article", article_path(article), class: "btn btn-primary" %>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
+</div>
