@@ -1,1 +1,14 @@
-<h1>ICI C INDEX</h1>
+<% @articles.each do |article| %>
+  <div class="card" style="width: 18rem;">
+    <%= cl_image_tag(article.photo, class: "card-img-top", alt: "Card image cap") %>
+    <div class="card-body">
+      <h5 class="card-title">
+        <%= article.title %>
+      </h5>
+      <p class="card-text">
+        <%= article.content %>
+      </p>
+      <%= link_to "Voir l'article", article_path(article), class: "btn btn-primary" %>
+    </div>
+  </div>
+<% end %>
