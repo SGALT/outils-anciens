@@ -1,6 +1,6 @@
 class ArticlesController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :new]
-  before_action :set_project, only: [:show, :edit, :update, :destroy]
+  before_action :set_article, only: [:show, :edit, :update, :destroy]
 
   def index
     @articles = Article.all
