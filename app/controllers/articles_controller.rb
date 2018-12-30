@@ -7,6 +7,7 @@ class ArticlesController < ApplicationController
   end
 
   def show
+    @reviews = @article.reviews
   end
 
   def new

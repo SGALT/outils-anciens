@@ -18,11 +18,17 @@
           <%= link_to "Nouvel Article", new_article_path, class:"nav-link d-inline" %>
         </li>
         <li class="nav-item">
+          <%= link_to "Tous les articles", articles_path, class:"nav-link d-inline" %>
+        </li>
+        <li class="nav-item">
           <%= link_to 'Deconnexion', destroy_user_session_path, class:"nav-link d-inline", method: :delete %>
         </li>
       <% else %>
         <li class="nav-item">
           <%= link_to "Mon profil", edit_user_registration_path, class:"nav-link d-inline" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "Tous les articles", articles_path, class:"nav-link d-inline" %>
         </li>
         <li class="nav-item">
           <%= link_to 'Deconnexion', destroy_user_session_path, class:"nav-link d-inline", method: :delete %>
