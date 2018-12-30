@@ -1,14 +1,27 @@
-<% @articles.each do |article| %>
-  <div class="card" style="width: 18rem;">
-    <%= cl_image_tag(article.photo, class: "card-img-top", alt: "Card image cap") %>
-    <div class="card-body">
-      <h5 class="card-title">
-        <%= article.title %>
-      </h5>
-      <p class="card-text">
-        <%= article.content %>
-      </p>
-      <%= link_to "Voir l'article", article_path(article), class: "btn btn-primary" %>
-    </div>
+<div class="container-fluid">
+  <div class="row">
+    <% @articles.each do |article| %>
+      <div class="col-xs-12 col-md-4" style="margin-top: 20px;">
+        <div class="card mx-auto" style="width: 18rem;">
+          <%= cl_image_tag(article.photo, class: "card-img-top", alt: "Card image cap") %>
+          <div class="card-body">
+            <h4 class="card-title">
+              <%= article.title %>
+            </h4>
+            <h5 class="card-title">
+              <%= article.profession %>
+            </h5>
+            <h6 class="card-title">
+              <% date = article.created_at.to_s.first(16) %>
+              Rédigé le <%= date %>
+            </h6>
+            <p class="card-text">
+              <%= article.content.first(100) %>....
+            </p>
+            <%= link_to "Voir l'article", article_path(article), class: "btn btn-primary" %>
+          </div>
+        </div>
+      </div>
+    <% end %>
   </div>
-<% end %>
+</div>

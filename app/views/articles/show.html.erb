@@ -1,0 +1,21 @@
+<div class="container-fluid">
+  <%= cl_image_tag(@article.photo, class: "img-fluid", alt: "article photo") %>
+</div>
+<div class="container-fluid d-flex flex-column">
+  <div class="border">
+    <h2 class="text-center text-uppercase">
+      <%= @article.title %>
+    </h2>
+    <h3 class="text-capitalize">
+      Catégorie : <%= @article.profession %>
+    </h3>
+    <h4>
+      <% date = @article.created_at.to_s.first(16) %>
+      <%= date %>
+    </h4>
+    <p>
+      <%= @article.content %>
+    </p>
+    <%= link_to("Tous les articles", articles_path, class: "btn btn-danger") %>
+  </div>
+</div>
