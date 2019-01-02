@@ -17,5 +17,8 @@
       <%= @article.content %>
     </p>
     <%= link_to("Tous les articles", articles_path, class: "btn btn-danger") %>
+    <% if current_user.admin %>
+      <%= link_to("Modifier l'article", edit_article_path, class: "btn btn-danger") %>
+    <% end %>
   </div>
 </div>
