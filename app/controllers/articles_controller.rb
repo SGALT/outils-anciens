@@ -4,6 +4,7 @@ class ArticlesController < ApplicationController
 
   def index
     @articles = Article.all
+    @articles_ordered = @articles.sort_by { |article| article.updated_at }.reverse
   end
 
   def show
